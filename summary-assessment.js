@@ -58,10 +58,13 @@ function each(coll, f) {
   //solve it using the most appropriate helper functions(reduce,each,map,filter).
   //wordLengths("hello its me") // [5,3,2]
   
-  function wordLengths(str) {
-      // TODO: your code here 
-  }
   
+   function wordLengths(str){
+    return map(str.split(' '), function (word, element){
+      return word.length;
+    });
+  }
+
   //=============================================================================
   /*                                  Q2                                    */
   //=============================================================================
@@ -72,8 +75,21 @@ function each(coll, f) {
   // countOccurrences("hello, world!", "l"); // 3
   
   function countOccurrences(string, character) {
-      // your code is here
+
+    if (Array.isArray()) {
+      for (var i = 0; i < string.length; i++) {
+        character(string[i], i);
+      }
+    } else {
+      for (var key in string) {
+        character(string[key], key);
+      }
+    }
   }
+
+
+  	
+//    
   
   //=============================================================================
   /*                                  Q3                                    */
@@ -84,8 +100,12 @@ function each(coll, f) {
   // wordsLongerThanThree("Hello Mad World") //["Hello", "World"]
   
   function wordsLongerThanThree(str) {
-      // TODO: your code here 
+       return filter(str.split (' '),function(word, element){
+      return word.length > 3 ;
+    });
   }
+  
+  // ----words of length that are longer than 3
   
   //=============================================================================
   /*                                  Q4                                        */
@@ -99,10 +119,16 @@ function each(coll, f) {
   //repeatString('dog', 3); // => 'dog' + 'dog' + 'dog' => 'dogdogdog'
   
   function repeatString(str, count) { 
-   // TODO: your code here 
-  } 
-   
+  var repeatString = "";
+  while (count > 0) {
+    repeatString += str;
+    count--;
+  }
+  return repeatString;
+ }
   
+  // -----string to be repeated every number of count
+
   //=============================================================================
   /*                                  Q5                                       */
   //=============================================================================
@@ -153,8 +179,11 @@ function each(coll, f) {
   */
   
   // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
-  
-  // Write your code here .....
+
+  // -----Yes I am
+
+   
+
   
   //=============================================================================
   /*                                  Q7                                       */
@@ -215,11 +244,19 @@ function each(coll, f) {
   /*                              Q10                                           */
   //================================================================================
   // Theoretical questions.
+
   // 1- In your own words,Why do we use Closures ?
-  
+  //----- A closure gives as an access to an outer function’s scope from an inner function.
+ 
   // 2- In OOP, what does "this" refer to ?
-  
+  //------It's a keyword refers to the object called 
+
   // 3- What is jQuery?
+  //-----It a javascript library to make it easier on our website
   
   // 4- what is the diffrence between Closure's methods and The OOP's methods?
-  
+  //-----A closure is a combination of function,
+  //     gives as an access to an outer function’s scope from an inner function.
+  //     But object-oriented programming, refers to using self-contained pieces 
+  //     of code to develop applications. 
+     
